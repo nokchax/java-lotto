@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WinningNumbers extends LottoTicket {
-
     private final LottoNumber bonusNumber;
 
     private WinningNumbers(final LottoNumbers lottoNumbers, final LottoNumber bonusNumber) {
