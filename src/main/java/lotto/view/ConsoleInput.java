@@ -38,10 +38,12 @@ public class ConsoleInput {
                 .collect(Collectors.toList());
     }
 
-    public static int inputNumberOfManualLotto() {
+    public static List<List<Integer>> inputNumberOfManualLotto() {
         System.out.println(INPUT_MANUAL_LOTTO_NUMBERS_STATEMENT);
 
-        return receiveInt();
+        int manualLottoCount = receiveInt();
+
+        return inputManualLottoNumbers(manualLottoCount);
     }
 
     public static List<List<Integer>> inputManualLottoNumbers(final int manualLottoCount) {
@@ -56,6 +58,7 @@ public class ConsoleInput {
         return Stream.of(tokens)
                 .map(String::trim)
                 .map(Integer::parseInt)
+                .sorted()
                 .collect(Collectors.toList());
     }
 }

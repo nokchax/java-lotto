@@ -44,4 +44,8 @@ public class PaymentInfo {
     public List<LottoNumbers> getLottoNumbers() {
         return lottoNumbers;
     }
+
+    public int getNoOfManualLotto() {
+        return lottoNumbers.size();
+    }
 }
