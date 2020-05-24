@@ -2,19 +2,20 @@ package lotto.lotto;
 
 import lotto.dto.LottoTicketDto;
 import lotto.match.MatchResult;
+import lotto.money.Money;
 import lotto.prize.LottoPrize;
 
 import java.util.List;
 import java.util.Map;
 
 public class Lotto {
-    private final int payment;
+    private final Money paymentMoney;
     private final LottoTickets lottoTickets;
 
-    private Lotto(final int payment, final LottoTickets lottoTickets) {
+    private Lotto(final Money payment, final LottoTickets lottoTickets) {
         validate(lottoTickets);
 
-        this.payment = payment;
+        this.paymentMoney = payment;
         this.lottoTickets = lottoTickets;
     }
 
@@ -24,7 +25,7 @@ public class Lotto {
         }
     }
 
-    public static Lotto init(final int payment, final LottoTickets lottoTickets) {
+    public static Lotto init(final Money payment, final LottoTickets lottoTickets) {
         return new Lotto(payment, lottoTickets);
     }
 
@@ -35,6 +36,6 @@ public class Lotto {
     public MatchResult match(final WinningNumbers winningNumbers) {
         Map<LottoPrize, Long> lottoPrizes = lottoTickets.matchLottoNumbers(winningNumbers);
 
-        return MatchResult.init(payment, lottoPrizes);
+        return MatchResult.init(paymentMoney, lottoPrizes);
     }
 }
