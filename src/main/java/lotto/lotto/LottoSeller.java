@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 public class LottoSeller {
     public static final int PRICE_OF_A_TICKET_VALUE = 1000;
     public static final Money PRICE_OF_A_TICKET = Money.of(PRICE_OF_A_TICKET_VALUE);
-    private static final int ZERO = 0;
 
     private LottoSeller() {}
 

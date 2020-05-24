@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ConsoleInput {
     private static final String SPLITTER = ",";
@@ -41,5 +42,20 @@ public class ConsoleInput {
         System.out.println(INPUT_MANUAL_LOTTO_NUMBERS_STATEMENT);
 
         return receiveInt();
+    }
+
+    public static List<List<Integer>> inputManualLottoNumbers(final int manualLottoCount) {
+        return Stream.generate(SCANNER::nextLine)
+                .limit(manualLottoCount)
+                .map(str -> str.split(SPLITTER))
+                .map(ConsoleInput::convert)
+                .collect(Collectors.toList());
+    }
+
+    private static List<Integer> convert(String[] tokens) {
+        return Stream.of(tokens)
+                .map(String::trim)
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 }

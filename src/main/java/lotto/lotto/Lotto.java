@@ -13,14 +13,14 @@ public class Lotto {
     private final LottoTickets lottoTickets;
 
     private Lotto(final Money payment, final LottoTickets lottoTickets) {
-        validate(lottoTickets);
+        validate(payment, lottoTickets);
 
         this.paymentMoney = payment;
         this.lottoTickets = lottoTickets;
     }
 
-    private void validate(final LottoTickets lottoTickets) {
-        if (lottoTickets == null) {
+    private void validate(final Money payment, final LottoTickets lottoTickets) {
+        if (payment == null || lottoTickets == null) {
             throw new IllegalArgumentException("LottoTickets can't be a null");
         }
     }
